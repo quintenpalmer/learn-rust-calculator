@@ -1,0 +1,7 @@
+[package]
+name = "calcmd"
+version = "0.1.0"
+authors = ["Quinten Palmer <quinten@clypd.com>"]
+
+[dependencies]
+calclogic = {path = "../../lib/calclogic"}
