@@ -27,8 +27,24 @@ fn get_expr_string() -> Result<String> {
 fn run_app() -> Result<()> {
     let expr = try!(get_expr_string());
 
+    match calclogic::tokenize(expr.clone()) {
+        Ok(evaled) => println!("{} tokenizes to {:?}", expr, evaled),
+        Err(err) => println!("{} could not be tokenized ({})", expr, err),
+    };
+
+    //
+
+    match calclogic::parse_tokens(try!(calclogic::tokenize(expr.clone())
+        .map_err(Error::CalcLogicError))) {
+        Ok(evaled) => println!("{} tokenizes to {:?}", expr, evaled),
+        Err(err) => println!("{} could not be tokenized ({})", expr, err),
+    };
+
     match calclogic::calculate(expr.clone()) {
-        Ok(evaled) => println!("{}", evaled),
+        Ok(evaled) => {
+            println!("{} calculates to {:?}", expr, evaled);
+            println!("{}", evaled);
+        }
         Err(err) => println!("{} could not be calculated ({})", expr, err),
     };
 
