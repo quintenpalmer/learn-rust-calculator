@@ -35,6 +35,7 @@ pub enum Token {
 #[derive(Debug, Copy, Clone)]
 pub enum Operation {
     Plus,
+    Minus,
 }
 
 

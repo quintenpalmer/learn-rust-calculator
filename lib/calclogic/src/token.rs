@@ -20,6 +20,7 @@ pub fn tokenize(input: String) -> Result<Vec<Token>> {
             '8' => Ok(Token::Num(8)),
             '9' => Ok(Token::Num(9)),
             '+' => Ok(Token::Operation(Operation::Plus)),
+            '-' => Ok(Token::Operation(Operation::Minus)),
             _ => Err(Error::IllegalToken(c.to_string())),
         });
         vec.push(t);
