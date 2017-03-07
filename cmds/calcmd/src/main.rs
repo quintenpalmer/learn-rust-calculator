@@ -30,6 +30,11 @@ fn get_expr_string() -> Result<String> {
 fn run_app() -> Result<()> {
     let expr = try!(get_expr_string());
 
+    match calclogic::tokenize(expr.clone()) {
+        Ok(evaled) => println!("{:?}", evaled),
+        Err(err) => println!("{} could not be calculated ({})", expr, err),
+    };
+
     match calclogic::calculate(expr.clone()) {
         Ok(evaled) => println!("{}", evaled),
         Err(err) => println!("{} could not be calculated ({})", expr, err),
