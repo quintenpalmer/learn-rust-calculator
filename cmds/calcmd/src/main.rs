@@ -10,7 +10,10 @@ use errors::{Result, Error};
 
 fn main() {
     println!("time to calculate");
-    let _ = run_app();
+    match run_app() {
+        Ok(()) => {}
+        Err(e) => println!("{}", e),
+    };
 }
 
 fn get_expr_string() -> Result<String> {
