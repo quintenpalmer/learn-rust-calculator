@@ -36,6 +36,7 @@ pub enum Token {
 pub enum Operation {
     Plus,
     Minus,
+    Mul,
 }
 
 

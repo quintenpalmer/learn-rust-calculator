@@ -9,6 +9,7 @@ pub fn eval(v: Value) -> Result<Value> {
             match (op, eval1, eval2) {
                 (Operation::Plus, Value::Num(n1), Value::Num(n2)) => Ok(Value::Num(n1 + n2)),
                 (Operation::Minus, Value::Num(n1), Value::Num(n2)) => Ok(Value::Num(n1 - n2)),
+                (Operation::Mul, Value::Num(n1), Value::Num(n2)) => Ok(Value::Num(n1 * n2)),
                 _ => Err(Error::EvalNonNum),
             }
         }
